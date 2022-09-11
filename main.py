@@ -2,6 +2,15 @@ import os
 import pygame
 import sys
 import json
+from pytmx.util_pygame import load_pygame
+
+class AllSprites(pygame.sprite.Group):
+    def __init__(self,settings):
+        super().__init__()
+        self.offset=vector()
+        self.display_surface=pygame.display.get_surface()
+        self.background=pygame.image.load(os.path.join('graphics','other','map.png')).convert()
+        self.settings=settings
 
 class Game:
     def __init__(self):
@@ -13,8 +22,14 @@ class Game:
         pygame.display.set_caption('Western Shooter')
         self.clock=pygame.time.Clock()
         self.gamerun=True
-        self.all_sprites=pygame.sprite.Group()
-   
+        self.all_sprites=AllSprites(self.settings)
+
+    def setup(self):
+        tmx_map=load_pygame(os.path.join('data','map.tmx'))
+        # tiles
+        for x,y,surface in tmx_map.get_layer_by_name('fence').tiles():
+            Sprite((x*64,y*64), surface,[self.all_sprites,self.collision_sprite])
+        
     def run(self):
         while self.gamerun:
             dt=self.clock.tick(60)/1000
