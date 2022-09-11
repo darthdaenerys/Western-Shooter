@@ -6,7 +6,9 @@ class Entity(pygame.sprite.Sprite):
     def __init__(self,position,group,collision_sprite,path):
         super().__init__(group)
         self.import_assets(path)
-        self.image=pygame.Surface((50,50))
+        self.frameidx=0
+        self.status='down_idle'
+        self.image=self.animations[self.status][self.frameidx]
         self.rect=self.image.get_rect(center=position)
 
         # movements
@@ -21,6 +23,17 @@ class Entity(pygame.sprite.Sprite):
         # attacks
         self.attacking=False
     
+    def import_assets(self,path):
+        self.animations={}
+        for _ in os.walk(path):
+            for folder in _[1]:
+                self.animations[folder]=[]
+                folder_path=os.path.join(path,folder)
+                for file in os.listdir(folder_path):
+                    file_path=os.path.join(folder_path,file)
+                    surface=pygame.image.load(file_path).convert_alpha()
+                    self.animations[folder].append(surface)
+
     def move(self,dt):
         if self.direction.magnitude()!=0:
             self.direction=self.direction.normalize()
