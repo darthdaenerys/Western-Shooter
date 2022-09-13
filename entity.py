@@ -49,3 +49,21 @@ class Entity(pygame.sprite.Sprite):
         self.hitbox.centery=round(self.position.y)
         self.rect.center=self.hitbox.center
         self.collision('vertical')
+    
+    def collision(self,direction):
+        for sprite in self.collision_sprite.sprites():
+            if self.hitbox.colliderect(sprite.hitbox):
+                if direction=='horizontal':
+                    if self.direction.x>0:
+                        self.hitbox.right=sprite.hitbox.left
+                    elif self.direction.x<0:
+                        self.hitbox.left=sprite.hitbox.right
+                    self.position.x=self.hitbox.centerx
+                    self.rect.centerx=self.hitbox.centerx
+                else:
+                    if self.direction.y<0:
+                        self.hitbox.top=sprite.hitbox.bottom
+                    elif self.direction.y>0:
+                        self.hitbox.bottom=sprite.hitbox.top
+                    self.position.y=self.hitbox.centery
+                    self.rect.centery=self.hitbox.centery
