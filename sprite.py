@@ -21,6 +21,15 @@ class Bullet(pygame.sprite.Sprite):
         self.position=vector(self.hitbox.center)
         self.speed=bullet_speed
         self.direction=direction
+    
+    def move(self,dt):
+        self.position.x+=self.direction.x*self.speed*dt
+        self.hitbox.centerx=round(self.position.x)
+        self.rect.center=self.hitbox.center
+
+        self.position.y+=self.direction.y*self.speed*dt
+        self.hitbox.centery=round(self.position.y)
+        self.rect.center=self.hitbox.center
 
     def update(self,dt):
         self.move(dt)
