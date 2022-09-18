@@ -11,6 +11,13 @@ class AllSprites(pygame.sprite.Group):
         self.display_surface=pygame.display.get_surface()
         self.background=pygame.image.load(os.path.join('graphics','other','map.png')).convert()
         self.settings=settings
+    
+    def custom_draw(self,player):
+        self.offset.x=player.rect.centerx-self.settings['window_width']/2
+        self.offset.y=player.rect.centery-self.settings['window_height']/2
+        self.display_surface.blit(self.background,-self.offset)
+        for sprite in sorted(self.sprites(),key=lambda sprite:sprite.rect.centery):
+            self.display_surface.blit(sprite.image,sprite.rect.topleft-self.offset)
 
 class Game:
     def __init__(self):
@@ -44,7 +51,7 @@ class Game:
 
             # draw sprites
             self.display_surface.fill('black')
-            self.all_sprites.draw()
+            self.all_sprites.custom_draw(self.player)
 
             # update display
             pygame.display.update()
