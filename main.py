@@ -37,6 +37,10 @@ class Game:
         for x,y,surface in tmx_map.get_layer_by_name('fence').tiles():
             Sprite((x*64,y*64), surface,[self.all_sprites,self.collision_sprite])
         
+        # objects
+        for obj in tmx_map.get_layer_by_name('object'):
+            Sprite((obj.x,obj.y), obj.image,[self.all_sprites,self.collision_sprite])
+        
     def run(self):
         while self.gamerun:
             dt=self.clock.tick(60)/1000
