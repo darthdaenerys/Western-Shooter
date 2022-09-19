@@ -1,6 +1,7 @@
 import os
 import pygame
 import sys
+from pygame.math import Vector2 as vector
 import json
 from pytmx.util_pygame import load_pygame
 
@@ -29,7 +30,13 @@ class Game:
         pygame.display.set_caption('Western Shooter')
         self.clock=pygame.time.Clock()
         self.gamerun=True
+        self.bullet_surface=pygame.image.load(os.path.join('graphics','other','particle.png')).convert_alpha()
         self.all_sprites=AllSprites(self.settings)
+        self.collision_sprite=pygame.sprite.Group()
+        self.bullet_sprite=pygame.sprite.Group()
+        self.monster_sprite=pygame.sprite.Group()
+        self.music=pygame.mixer.Sound(os.path.join('sound','music.mp3'))
+        self.setup()
 
     def setup(self):
         tmx_map=load_pygame(os.path.join('data','map.tmx'))
