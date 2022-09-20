@@ -4,6 +4,7 @@ from sprite import Sprite,Bullet
 import sys
 from pygame.math import Vector2 as vector
 import json
+from player import Player
 from pytmx.util_pygame import load_pygame
 
 class AllSprites(pygame.sprite.Group):
