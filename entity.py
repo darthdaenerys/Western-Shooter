@@ -33,6 +33,13 @@ class Entity(pygame.sprite.Sprite):
                     file_path=os.path.join(folder_path,file)
                     surface=pygame.image.load(file_path).convert_alpha()
                     self.animations[folder].append(surface)
+    
+    def damage(self):
+        if self.is_vulnerable:
+            self.health-=1
+            self.hit_sound.play()
+            self.is_vulnerable=False
+            self.attack_time=pygame.time.get_ticks()
 
     def move(self,dt):
         if self.direction.magnitude()!=0:
