@@ -41,6 +41,10 @@ class Entity(pygame.sprite.Sprite):
             self.is_vulnerable=False
             self.attack_time=pygame.time.get_ticks()
 
+    def check_death(self):
+        if self.health<=0:
+            self.kill()
+
     def move(self,dt):
         if self.direction.magnitude()!=0:
             self.direction=self.direction.normalize()
