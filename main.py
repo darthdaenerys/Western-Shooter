@@ -39,6 +39,9 @@ class Game:
         self.monster_sprite=pygame.sprite.Group()
         self.music=pygame.mixer.Sound(os.path.join('sound','music.mp3'))
         self.setup()
+    
+    def create_bullet(self,position,direction,bullet_speed):
+        Bullet(position, self.bullet_surface, direction,[self.all_sprites,self.bullet_sprite],bullet_speed)
 
     def setup(self):
         tmx_map=load_pygame(os.path.join('data','map.tmx'))
