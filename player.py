@@ -16,7 +16,31 @@ class Player(Entity):
             self.create_bullet(self.rect.center+self.bullet_direction*80,self.bullet_direction,5000)
             self.bullet_shot=True
             self.bullet_sound.play()
-        
+
+    def input(self):
+        keys=pygame.key.get_pressed()
+
+        if not self.attacking:
+            # vertical movement
+            if keys[pygame.K_UP] or keys[pygame.K_w]:
+                self.direction.y=-1
+                self.status='up'
+            elif keys[pygame.K_DOWN] or keys[pygame.K_s]:
+                self.direction.y=1
+                self.status='down'
+            else:
+                self.direction.y=0
+
+            # horizontal movement
+            if keys[pygame.K_RIGHT] or keys[pygame.K_d]:
+                self.direction.x=1
+                self.status='right'
+            elif keys[pygame.K_LEFT] or keys[pygame.K_a]:
+                self.direction.x=-1
+                self.status='left'
+            else:
+                self.direction.x=0
+    
     def update(self,dt):
         self.input()
         self.get_status()
