@@ -42,6 +42,11 @@ class Game:
     
     def create_bullet(self,position,direction,bullet_speed):
         Bullet(position, self.bullet_surface, direction,[self.all_sprites,self.bullet_sprite],bullet_speed)
+    
+    def bullet_collision(self):
+        # bullet obstacle collision
+        for obstacle in self.collision_sprite.sprites():
+            pygame.sprite.spritecollide(obstacle,self.bullet_sprite,True)
 
     def setup(self):
         tmx_map=load_pygame(os.path.join('data','map.tmx'))
