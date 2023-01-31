@@ -49,6 +49,10 @@ class Player(Entity):
             
             # attacking
             if keys[pygame.K_SPACE]:
+                self.attacking=True
+                self.direction=vector()
+                self.frameidx=0
+                self.bullet_shot=False
                 if self.status.split('_')[0]=='left':
                     self.bullet_direction=vector(-1,0)
                 elif self.status.split('_')[0]=='right':
