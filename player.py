@@ -46,6 +46,17 @@ class Player(Entity):
                 self.status='left'
             else:
                 self.direction.x=0
+            
+            # attacking
+            if keys[pygame.K_SPACE]:
+                if self.status.split('_')[0]=='left':
+                    self.bullet_direction=vector(-1,0)
+                elif self.status.split('_')[0]=='right':
+                    self.bullet_direction=vector(1,0)
+                elif self.status.split('_')[0]=='up':
+                    self.bullet_direction=vector(0,-1)
+                elif self.status.split('_')[0]=='down':
+                    self.bullet_direction=vector(0,1)
     
     def update(self,dt):
         self.input()
