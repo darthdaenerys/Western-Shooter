@@ -17,6 +17,12 @@ class Player(Entity):
             self.bullet_shot=True
             self.bullet_sound.play()
 
+    def get_status(self):
+        if self.direction.magnitude()==0:
+            self.status=self.status.split('_')[0]+'_idle'
+        if self.attacking:
+            self.status=self.status.split('_')[0]+'_attack'
+
     def input(self):
         keys=pygame.key.get_pressed()
 
