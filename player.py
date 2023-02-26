@@ -16,7 +16,13 @@ class Player(Entity):
             self.create_bullet(self.rect.center+self.bullet_direction*80,self.bullet_direction,5000)
             self.bullet_shot=True
             self.bullet_sound.play()
-
+        if self.frameidx>=len(self.animations[self.status]):
+            self.frameidx=0
+            if self.attacking:
+                self.attacking=False
+        self.image=self.animations[self.status][int(self.frameidx)]
+        self.mask=pygame.mask.from_surface(self.image)
+    
     def get_status(self):
         if self.direction.magnitude()==0:
             self.status=self.status.split('_')[0]+'_idle'
