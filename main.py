@@ -48,6 +48,10 @@ class Game:
         for obstacle in self.collision_sprite.sprites():
             pygame.sprite.spritecollide(obstacle,self.bullet_sprite,True)
 
+        # player bullet collision
+        if pygame.sprite.spritecollide(self.player,self.bullet_sprite,True,pygame.sprite.collide_mask):
+            self.player.damage()
+
     def setup(self):
         tmx_map=load_pygame(os.path.join('data','map.tmx'))
         # tiles
