@@ -1,5 +1,6 @@
 import pygame
 from pygame.math import Vector2 as vector
+from entity import Entity
 
 class Monster:
     def get_player_distance_direction(self):
