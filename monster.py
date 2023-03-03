@@ -29,3 +29,8 @@ class Monster:
                     self.status='left_idle'
                 else:
                     self.status='right_idle'
+            else:
+                if direction.y<0:
+                    self.status='up_idle'
+                else:
+                    self.status='down_idle'
