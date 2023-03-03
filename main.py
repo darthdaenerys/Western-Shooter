@@ -70,6 +70,11 @@ class Game:
         for obj in tmx_map.get_layer_by_name('object'):
             Sprite((obj.x,obj.y), obj.image,[self.all_sprites,self.collision_sprite])
         
+        # entities
+        for obj in tmx_map.get_layer_by_name('entities'):
+            if obj.name=='Player':
+                self.player=Player((obj.x,obj.y),[self.all_sprites,self.monster_sprite],self.collision_sprite,self.settings['paths']['player'],self.create_bullet)
+    
     def run(self):
         while self.gamerun:
             dt=self.clock.tick(60)/1000
