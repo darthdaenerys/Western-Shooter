@@ -21,3 +21,11 @@ class Monster:
         else:
             self.direction=vector()
     
+    def face(self):
+        distance,direction=self.get_player_distance_direction()
+        if distance<self.notice_radius:
+            if -.5<direction.y<.5:
+                if direction.x<0:
+                    self.status='left_idle'
+                else:
+                    self.status='right_idle'
