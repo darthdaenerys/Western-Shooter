@@ -41,3 +41,6 @@ class Coffin(Entity,Monster):
         # player interaction
         self.player=player
         self.notice_radius=550
+        self.walk_radius=500
+        self.attack_radius=150
+        self.health=3
