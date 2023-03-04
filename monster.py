@@ -44,3 +44,9 @@ class Coffin(Entity,Monster):
         self.walk_radius=500
         self.attack_radius=150
         self.health=3
+
+        # overwrites
+        self.speed=200
+        
+        # sounds
+        self.shovel_hit=pygame.mixer.Sound(os.path.join('sound','shovel-hit.wav'))
