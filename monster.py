@@ -34,3 +34,10 @@ class Monster:
                     self.status='up_idle'
                 else:
                     self.status='down_idle'
+    
+class Coffin(Entity,Monster):
+    def __init__(self, position, group, collision_sprite, path,player):
+        super().__init__(position, group, collision_sprite, path)
+        # player interaction
+        self.player=player
+        self.notice_radius=550
