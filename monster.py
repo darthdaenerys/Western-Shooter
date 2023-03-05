@@ -61,3 +61,7 @@ class Coffin(Entity,Monster):
     def animate(self,dt):
         self.frameidx+=18*dt
         distance=self.get_player_distance_direction()[0]
+    
+    def update(self,dt):
+        self.attack()
+        self.animate(dt)
