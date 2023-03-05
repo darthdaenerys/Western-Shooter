@@ -50,3 +50,10 @@ class Coffin(Entity,Monster):
         
         # sounds
         self.shovel_hit=pygame.mixer.Sound(os.path.join('sound','shovel-hit.wav'))
+    
+    def attack(self):
+        distance=self.get_player_distance_direction()[0]
+        if distance<self.attack_radius and not self.attacking:
+            self.attacking=True
+            self.shovel_hit.play()
+            self.frameidx=0
