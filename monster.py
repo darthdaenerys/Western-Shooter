@@ -57,3 +57,7 @@ class Coffin(Entity,Monster):
             self.attacking=True
             self.shovel_hit.play()
             self.frameidx=0
+
+    def animate(self,dt):
+        self.frameidx+=18*dt
+        distance=self.get_player_distance_direction()[0]
