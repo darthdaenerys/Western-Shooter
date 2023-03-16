@@ -66,3 +66,7 @@ class Coffin(Entity,Monster):
         if int(self.frameidx)==4 and self.attacking:
             if distance<self.attack_radius:
                 self.player.damage()
+        if self.frameidx>=len(self.animations[self.status]):
+            self.frameidx=0
+            if self.attacking:
+                self.attacking=False
