@@ -72,3 +72,7 @@ class Coffin(Entity,Monster):
                 self.attacking=False
         self.image=self.animations[self.status][int(self.frameidx)]
         self.mask=pygame.mask.from_surface(self.image)
+    
+    def update(self,dt):
+        self.chase()
+        self.face()
