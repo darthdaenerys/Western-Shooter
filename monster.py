@@ -77,3 +77,4 @@ class Coffin(Entity,Monster):
         self.chase()
         self.face()
         self.attack()
+        self.animate(dt)
