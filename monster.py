@@ -76,3 +76,4 @@ class Coffin(Entity,Monster):
     def update(self,dt):
         self.chase()
         self.face()
+        self.attack()
