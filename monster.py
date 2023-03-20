@@ -78,3 +78,4 @@ class Coffin(Entity,Monster):
         self.face()
         self.attack()
         self.animate(dt)
+        self.blink()
