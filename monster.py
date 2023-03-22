@@ -79,3 +79,4 @@ class Coffin(Entity,Monster):
         self.attack()
         self.animate(dt)
         self.check_death()
+        self.move(dt)
