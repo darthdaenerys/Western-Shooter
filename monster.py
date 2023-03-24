@@ -78,5 +78,8 @@ class Coffin(Entity,Monster):
         self.chase()
         self.attack()
         self.animate(dt)
-        self.check_death()
-        self.move(dt)
+
+class Cactus(Entity,Monster):
+    def __init__(self, position, group, collision_sprite, path,player,create_bullet):
+        super().__init__(position, group, collision_sprite, path)
+        pass
