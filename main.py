@@ -6,6 +6,7 @@ from pygame.math import Vector2 as vector
 import json
 from player import Player
 from pytmx.util_pygame import load_pygame
+from monster import Coffin,Cactus
 
 class AllSprites(pygame.sprite.Group):
     def __init__(self,settings):
