@@ -85,3 +85,6 @@ class Cactus(Entity,Monster):
         # player interaction
         self.player=player
         self.notice_radius=550
+        self.walk_radius=500
+        self.attack_radius=350
+        self.health=1
