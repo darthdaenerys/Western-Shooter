@@ -97,3 +97,6 @@ class Cactus(Entity,Monster):
             self.bullet_shot=False
         if self.attacking:
             self.status=self.status.split('_')[0]+'_attack'
+    
+    def animate(self,dt):
+        self.frameidx+=10*dt
