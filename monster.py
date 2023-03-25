@@ -95,3 +95,5 @@ class Cactus(Entity,Monster):
             self.attacking=True
             self.frameidx=0
             self.bullet_shot=False
+        if self.attacking:
+            self.status=self.status.split('_')[0]+'_attack'
