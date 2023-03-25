@@ -91,3 +91,7 @@ class Cactus(Entity,Monster):
     
     def attack(self):
         distance=self.get_player_distance_direction()[0]
+        if distance<self.attack_radius and not self.attacking:
+            self.attacking=True
+            self.frameidx=0
+            self.bullet_shot=False
