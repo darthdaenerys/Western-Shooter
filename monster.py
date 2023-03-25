@@ -104,3 +104,5 @@ class Cactus(Entity,Monster):
             distance,direction=self.get_player_distance_direction()
             self.create_bullet(self.rect.center+direction*150,direction,1000)
             self.bullet_shot=True
+        if self.frameidx>=len(self.animations[self.status]):
+            self.frameidx=0
