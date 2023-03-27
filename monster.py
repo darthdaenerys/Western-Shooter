@@ -114,3 +114,4 @@ class Cactus(Entity,Monster):
     def update(self,dt):
         self.face()
         self.chase()
+        self.attack()
