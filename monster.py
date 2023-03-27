@@ -117,3 +117,4 @@ class Cactus(Entity,Monster):
         self.attack()
         self.animate(dt)
         self.blink()
+        self.invincibility_timer()
