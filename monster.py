@@ -106,5 +106,7 @@ class Cactus(Entity,Monster):
             self.bullet_shot=True
         if self.frameidx>=len(self.animations[self.status]):
             self.frameidx=0
+            if self.attacking:
+                self.attacking=False
         self.image=self.animations[self.status][int(self.frameidx)]
         self.mask=pygame.mask.from_surface(self.image)
