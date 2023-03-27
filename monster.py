@@ -116,3 +116,4 @@ class Cactus(Entity,Monster):
         self.chase()
         self.attack()
         self.animate(dt)
+        self.blink()
