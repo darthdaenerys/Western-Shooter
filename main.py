@@ -81,6 +81,7 @@ class Game:
                 self.Cactus=Cactus((obj.x,obj.y),[self.all_sprites,self.monster_sprite],self.collision_sprite,self.settings['paths']['cactus'],self.player,self.create_bullet)
     
     def run(self):
+        self.music.play(loops=-1)
         while self.gamerun:
             dt=self.clock.tick(60)/1000
 
@@ -91,6 +92,7 @@ class Game:
             
             # update sprites
             self.all_sprites.update(dt)
+            self.bullet_collision()
 
             # draw sprites
             self.display_surface.fill('black')
