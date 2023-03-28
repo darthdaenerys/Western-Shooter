@@ -75,6 +75,10 @@ class Game:
         for obj in tmx_map.get_layer_by_name('entities'):
             if obj.name=='Player':
                 self.player=Player((obj.x,obj.y),[self.all_sprites,self.monster_sprite],self.collision_sprite,self.settings['paths']['player'],self.create_bullet)
+            elif obj.name=='Coffin':
+                self.coffin=Coffin((obj.x,obj.y), [self.all_sprites,self.monster_sprite],self.collision_sprite,self.settings['paths']['coffin'],self.player)
+            elif obj.name=='Cactus':
+                self.Cactus=Cactus((obj.x,obj.y),[self.all_sprites,self.monster_sprite],self.collision_sprite,self.settings['paths']['cactus'],self.player,self.create_bullet)
     
     def run(self):
         while self.gamerun:
