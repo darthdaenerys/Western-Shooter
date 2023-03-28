@@ -10,6 +10,7 @@ class Entity(pygame.sprite.Sprite):
         self.status='down_idle'
         self.image=self.animations[self.status][self.frameidx]
         self.rect=self.image.get_rect(center=position)
+        self.mask=pygame.mask.from_surface(self.image)
 
         # movements
         self.position=vector(self.rect.center)
