@@ -50,6 +50,11 @@ class Entity(pygame.sprite.Sprite):
         if not self.is_vulnerable:
             if pygame.time.get_ticks()-self.attack_time>400:
                 self.is_vulnerable=True
+    
+    def blink(self):
+        if not self.is_vulnerable and self.wave_value():
+            mask=pygame.mask.from_surface(self.image)
+            self.image=white_surf
 
     def check_death(self):
         if self.health<=0:
