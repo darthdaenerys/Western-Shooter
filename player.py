@@ -2,6 +2,7 @@ import pygame
 import os
 from pygame.math import Vector2 as vector
 from entity import Entity
+import sys
 
 class Player(Entity):
     def __init__(self,position,group,collision_sprite,path,create_bullet):
@@ -22,6 +23,11 @@ class Player(Entity):
                 self.attacking=False
         self.image=self.animations[self.status][int(self.frameidx)]
         self.mask=pygame.mask.from_surface(self.image)
+    
+    def check_death(self):
+        if self.health<=0:
+            pygame.quit()
+            sys.exit()
     
     def get_status(self):
         if self.direction.magnitude()==0:
