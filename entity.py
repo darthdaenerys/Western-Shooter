@@ -1,6 +1,7 @@
 import os
 import pygame
 from pygame.math import Vector2 as vector
+from math import sin
 
 class Entity(pygame.sprite.Sprite):
     def __init__(self,position,group,collision_sprite,path):
@@ -55,6 +56,9 @@ class Entity(pygame.sprite.Sprite):
         if not self.is_vulnerable and self.wave_value():
             mask=pygame.mask.from_surface(self.image)
             self.image=white_surf
+    
+    def wave_value(self):
+        return sin(pygame.time.get_ticks())>=0
 
     def check_death(self):
         if self.health<=0:
