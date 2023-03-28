@@ -26,6 +26,7 @@ class Entity(pygame.sprite.Sprite):
         # health
         self.health=10
         self.is_vulnerable=True
+        self.attack_time=pygame.time.get_ticks()
     
     def import_assets(self,path):
         self.animations={}
@@ -42,6 +43,7 @@ class Entity(pygame.sprite.Sprite):
         if self.is_vulnerable:
             self.health-=1
             self.is_vulnerable=False
+            self.attack_time=pygame.time.get_ticks()
 
     def check_death(self):
         if self.health<=0:
