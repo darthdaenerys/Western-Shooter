@@ -44,6 +44,11 @@ class Entity(pygame.sprite.Sprite):
             self.health-=1
             self.is_vulnerable=False
             self.attack_time=pygame.time.get_ticks()
+    
+    def invincibility_timer(self):
+        if not self.is_vulnerable:
+            if pygame.time.get_ticks()-self.attack_time>400:
+                self.is_vulnerable=True
 
     def check_death(self):
         if self.health<=0:
