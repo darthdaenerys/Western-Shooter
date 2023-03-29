@@ -29,7 +29,7 @@ class Entity(pygame.sprite.Sprite):
         self.health=10
         self.is_vulnerable=True
         self.attack_time=pygame.time.get_ticks()
-    
+
     def import_assets(self,path):
         self.animations={}
         for _ in os.walk(path):
@@ -55,6 +55,8 @@ class Entity(pygame.sprite.Sprite):
     def blink(self):
         if not self.is_vulnerable and self.wave_value():
             mask=pygame.mask.from_surface(self.image)
+            white_surf=mask.to_surface()
+            white_surf.set_colorkey((0,0,0))
             self.image=white_surf
     
     def wave_value(self):
