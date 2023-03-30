@@ -30,6 +30,11 @@ class Entity(pygame.sprite.Sprite):
         self.is_vulnerable=True
         self.attack_time=pygame.time.get_ticks()
 
+        # sounds
+        self.bullet_sound=pygame.mixer.Sound(os.path.join('sound','bullet.wav'))
+        self.hit_sound=pygame.mixer.Sound(os.path.join('sound','hit.mp3'))
+        self.hit_sound.set_volume(.6)
+    
     def import_assets(self,path):
         self.animations={}
         for _ in os.walk(path):
