@@ -49,6 +49,7 @@ class Entity(pygame.sprite.Sprite):
     def damage(self):
         if self.is_vulnerable:
             self.health-=1
+            self.hit_sound.play()
             self.is_vulnerable=False
             self.attack_time=pygame.time.get_ticks()
     
