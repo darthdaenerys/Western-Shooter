@@ -88,6 +88,13 @@ class Cactus(Entity,Monster):
         self.walk_radius=500
         self.attack_radius=350
         self.health=1
+
+        # overwrites
+        self.speed=100
+
+        # bullet shots
+        self.create_bullet=create_bullet
+        self.bullet_shot=False
     
     def attack(self):
         distance=self.get_player_distance_direction()[0]
