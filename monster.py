@@ -99,10 +99,10 @@ class Cactus(Entity,Monster):
             self.status=self.status.split('_')[0]+'_attack'
     
     def animate(self,dt):
-        self.frameidx+=10
         if int(self.frameidx)==6 and self.attacking and not self.bullet_shot:
             distance,direction=self.get_player_distance_direction()
             self.create_bullet(self.rect.center+direction*150,direction,1000)
+            self.bullet_sound.play()
             self.bullet_shot=True
         if self.frameidx>=len(self.animations[self.status]):
             self.frameidx=0
