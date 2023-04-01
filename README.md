@@ -12,3 +12,7 @@ Here are some suggestions of contributions:
 - Check the opened issues, there are bugs that could be fixed or enhancement waiting for implementation.
 - Help with balancing would be greatly appreciated... I'm not good in this kind of games even if I love them. All values could be found in the XML files wrapped in the data folder.
 - Contributions for sound effects or new soundtracks would be really appreciated.
+
+![Alt text](snapshots/snap-2.png)
+
+![Alt text](snapshots/snap-3.png)
