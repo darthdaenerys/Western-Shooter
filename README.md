@@ -42,3 +42,13 @@ If you ever need to remove a module for any reason, use the command `pip uninsta
 
   ![Alt text](snapshots/cactus-down.gif)![Alt text](snapshots/cactus-down-attack.gif)
 - Close the window to exit game.
+
+## Key Controls
+
+|Action|Primary|Secondary|
+|:-:|:-:|:-:|
+|Move Up|`W`|`up arrow`|
+|Move Down|`S`|`down arrow`|
+|Move Left|`A`|`left arrow`|
+|Move Right|`D`|`right arrow`|
+|Attack|`Space`|-|
