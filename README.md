@@ -18,3 +18,10 @@ Here are some suggestions of contributions:
 ![snap-2](https://user-images.githubusercontent.com/98907729/229296213-4d7cf498-1150-4f0e-8b57-9e1fe8e2f37c.png)
 
 ![snap-3](https://user-images.githubusercontent.com/98907729/229296216-96a97a92-835a-4e77-b503-1ec025441220.png)
+
+## How to start the game
+
+If you would rather run directly from the source (or want to develop the game), make sure to have Python installed and run `python -m pip install -r requirements.txt` in the repository folder.
+
+Then you can run python `main.py` or "./main.py" (only for Python 3) in linux operating system to start the game.
+If you ever need to remove a module for any reason, use the command `pip uninstall (module-name)`
