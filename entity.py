@@ -105,3 +105,7 @@ class Entity(pygame.sprite.Sprite):
                         self.hitbox.bottom=sprite.hitbox.top
                     self.position.y=self.hitbox.centery
                     self.rect.centery=self.hitbox.centery
+
+
+# Original author: Sagnik Barman
+# https://github.com/darthdaenerys
