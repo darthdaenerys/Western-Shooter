@@ -82,3 +82,7 @@ class Player(Entity):
         self.blink()
         self.move(dt)
         self.check_death()
+
+
+# Original author: Sagnik Barman
+# https://github.com/darthdaenerys
