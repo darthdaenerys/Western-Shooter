@@ -33,3 +33,7 @@ class Bullet(pygame.sprite.Sprite):
 
     def update(self,dt):
         self.move(dt)
+
+
+# Original author: Sagnik Barman
+# https://github.com/darthdaenerys
